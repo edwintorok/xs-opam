@@ -1,4 +1,4 @@
-FROM ocaml/opam:ubuntu-16.04_ocaml-4.04.2
+FROM ocaml/opam2:ubuntu-18.04
 MAINTAINER Marcello Seri <marcello.seri@citrix.com>
 
 COPY . /xs-opam
