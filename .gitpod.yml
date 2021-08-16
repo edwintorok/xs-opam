@@ -1,0 +1,12 @@
+image: ocaml/opam:debian-10-ocaml-4.10
+tasks:
+- init: |
+    opam remove --all default
+    opam repo add xs-opam --all-switches file:///workspace/xs-opam
+    opam switch 4.10
+    opam depext -y xs-toolstack
+    opam install -y xs-toolstack
+
+vscode:
+  extensions:
+  - ocamllabs.ocaml-platform
