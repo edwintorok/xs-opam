@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "ppxlib"
-version: "0.22.2"
+version: "0.25.0"
 synopsis: "Standard library for ppx rewriters"
 description: """\
 Ppxlib is the standard library for ppx rewriters and other programs
@@ -21,9 +21,8 @@ doc: "https://ocaml-ppx.github.io/ppxlib/"
 bug-reports: "https://github.com/ocaml-ppx/ppxlib/issues"
 depends: [
   "dune" {>= "2.7"}
-  "ocaml" {>= "4.04.1" & < "4.14"}
+  "ocaml" {>= "4.04.1" & < "4.15"}
   "ocaml-compiler-libs" {>= "v0.11.0"}
-  "ocaml-migrate-parsetree" {>= "2.2.0"}
   "ppx_derivers" {>= "1.0"}
   "sexplib0" {>= "v0.12"}
   "stdlib-shims"
@@ -33,6 +32,10 @@ depends: [
   "base" {with-test}
   "stdio" {with-test}
   "odoc" {with-doc}
+]
+conflicts: [
+  "ocaml-migrate-parsetree" {< "2.0.0"}
+  "base-effects"
 ]
 build: [
   ["dune" "subst"] {dev}
@@ -51,10 +54,10 @@ build: [
 dev-repo: "git+https://github.com/ocaml-ppx/ppxlib.git"
 url {
   src:
-    "https://github.com/ocaml-ppx/ppxlib/releases/download/0.22.2/ppxlib-0.22.2.tbz"
+    "https://github.com/ocaml-ppx/ppxlib/releases/download/0.25.0/ppxlib-0.25.0.tbz"
   checksum: [
-    "sha256=d0e8a1ebdc6220b1574d7a926f008460c5118ccef79bf9a0ce0242f34cff225a"
-    "sha512=6010a59be6af873eaf193670f9cc8c9a7f091cfd89ec6c5b68d1f0c72d7c6015eec6371c009fc473cf2cb37d24f0934d04d0eacefa567a4945234197c3b31741"
+    "sha256=2d2f150e7715845dc578d254f705a67600be71c986b7e67e81befda612870bd5"
+    "sha512=464220e3d8c75503824b73393df0b8ad16019acf55b8ecef89f8d464cd6d054e470ce4866b244216c5f7b85a5e8abad908aad212a78b4a132f3092fa785da0de"
   ]
 }
-x-commit-hash: "3cf57772fef4666a2992041cf3a670dd2be98603"
+x-commit-hash: "2fde140076144150d01997d529d451bbcae439c4"
