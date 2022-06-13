@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "dune-build-info"
-version: "2.9.1"
+version: "3.2.0"
 synopsis: "Embed build informations inside executable"
 description: """\
 The build-info library allows to access information about how the
@@ -16,19 +16,23 @@ homepage: "https://github.com/ocaml/dune"
 doc: "https://dune.readthedocs.io/"
 bug-reports: "https://github.com/ocaml/dune/issues"
 depends: [
-  "dune" {>= "2.9"}
+  "dune" {>= "3.0"}
+  "ocaml" {>= "4.08"}
   "odoc" {with-doc}
 ]
 build: [
   ["dune" "subst"] {dev}
+  ["rm" "-rf" "vendor/csexp"]
+  ["rm" "-rf" "vendor/pp"]
   ["dune" "build" "-p" name "-j" jobs "@install" "@doc" {with-doc}]
 ]
 dev-repo: "git+https://github.com/ocaml/dune.git"
 url {
-  src: "https://github.com/ocaml/dune/releases/download/2.9.1/dune-2.9.1.tbz"
+  src:
+    "https://github.com/ocaml/dune/releases/download/3.2.0/chrome-trace-3.2.0.tbz"
   checksum: [
-    "sha256=b374feb22b34099ccc6dd32128e18d088ff9a81837952b29f05110b308c09f26"
-    "sha512=fce1aa520db785c25ded75a959e9dafeb7887d4f5deeb14b044cd5b9e2d235dca24589d794d2f01513765bc4764cf72f8659bd15f3a4fc06efa61363dc5d709b"
+    "sha256=bd1fbce6ae79ed1eb26fa89bb2e2e23978afceb3f53f5578cf1bdab08a1ad5bc"
+    "sha512=b99e82d7e2233a9dd8c1fae591a03f9470fcdf9750d0e428cee2d4c8bcfa4da1595e9e10af2f234279a6ca8a120a773b247d4761d2c39210fc6101076631690e"
   ]
 }
-x-commit-hash: "e41c66259135d6d1d72b031be6684bf8826a2586"
+x-commit-hash: "43af00f79e41ce9101d42b36dab13e1f68d49a7a"
