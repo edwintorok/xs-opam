@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "merlin"
-version: "4.4-413"
+version: "4.5-414"
 synopsis:
   "Editor helper, provides completion, typing and source browsing in Vim and Emacs"
 description:
@@ -11,17 +11,17 @@ license: "MIT"
 homepage: "https://github.com/ocaml/merlin"
 bug-reports: "https://github.com/ocaml/merlin/issues"
 depends: [
-  "ocaml" {>= "4.13" & < "4.14"}
+  "ocaml" {>= "4.14" & < "4.15"}
   "dune" {>= "2.9.0"}
-  "dot-merlin-reader" {>= "4.0"}
-  "yojson" {>= "1.6.0"}
+  "dot-merlin-reader" {>= "4.2"}
+  "yojson" {>= "1.6.0" & < "2.0.0"}
   "conf-jq" {with-test}
-  "csexp" {>= "1.2.3"}
-  "result" {>= "1.5"}
+  "csexp" {>= "1.5.1"}
   "menhir" {dev}
   "menhirLib" {dev}
   "menhirSdk" {dev}
 ]
+conflicts: ["base-effects"]
 build: [
   ["dune" "subst"] {dev}
   ["dune" "build" "-p" name "-j" jobs]
@@ -69,10 +69,10 @@ See https://github.com/OCamlPro/opam-user-setup"""
 dev-repo: "git+https://github.com/ocaml/merlin.git"
 url {
   src:
-    "https://github.com/ocaml/merlin/releases/download/v4.4-413/merlin-4.4-413.tbz"
+    "https://github.com/ocaml/merlin/releases/download/v4.5-414/merlin-4.5-414.tbz"
   checksum: [
-    "sha256=609edc65b23b6ead83f98af0c90180e5c8f98b0619a9257828f9f18b9f8095c6"
-    "sha512=b0bf3c7d72dfc7c70e22d60afca5b7fee71a35127839181fdb46e1e15a230e58765960548c545bbef4fdab180291c738cacb724b9ecf284eee5640ebef07c4ff"
+    "sha256=31587b422b5ebd3eebda730e946868807d829128f8dc7153fb05c0c82742058e"
+    "sha512=cc2cf2c208091b3ae435a8124617e56f2002b7091532002ab49a1f817d90a5c4f9cf0bc5741dc7f2526e0352c3ca95b42c3b3a17c6cbfb80ad73d42310a25d22"
   ]
 }
-x-commit-hash: "7607238326a9352cbee9ecf612669e28ae9fa36e"
+x-commit-hash: "cc1582373e5baea1d236a63be39493858032a182"
