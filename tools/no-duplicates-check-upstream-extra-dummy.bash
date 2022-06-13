@@ -13,7 +13,7 @@ for pkg in $packages; do
   #   ocaml, ocaml-system, ocaml-base-compiler, ocaml-config
   # several versions of the dev tools might be needed:
   #   merlin, ocaml-lsp-server
-  if [ "$versions" -gt 1 ] && echo "$pkg" | grep -vqE '^xenctrl$|^ocaml$|^ocaml-base-compiler$|^ocaml-system$' ; then
+  if [ "$versions" -gt 1 ] && echo "$pkg" | grep -vqE '^xenctrl$|^ocaml$|^ocaml-base-compiler$|^ocaml-system$|^merlin$|^ocaml-lsp-server$|^ocamlformat$|^ocamlformat-rpc-lib$|^odoc-parser$' ; then
     >&2 echo "ERROR $pkg has multiple versions: $the_versions"
     exit 1
   fi

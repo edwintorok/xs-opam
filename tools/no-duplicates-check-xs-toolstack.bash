@@ -19,7 +19,7 @@ for pkg in $packages; do
   # xenctrl has 2 versions: dummy and master
   # severals versions of the compiler might be wanted for testing:
   #   ocaml, ocaml-system, ocaml-base-compiler
-  if [ "$versions" -gt 1 ] && echo "$pkg" | grep -vqE '^xenctrl$|^ocaml$|^ocaml-base-compiler$|^ocaml-system$' ; then
+  if [ "$versions" -gt 1 ] && echo "$pkg" | grep -vqE '^xenctrl$|^ocaml$|^ocaml-base-compiler$|^ocaml-system$|^ocamlformat$|^odoc-parser$' ; then
     >&2 echo "ERROR $pkg has multiple versions: $the_versions"
     exit 1
   fi
