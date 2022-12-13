@@ -6,7 +6,6 @@ authors: [
   "Euan Harris"
   "Vincent Bernardoff"
 ]
-license: "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
 homepage: "https://github.com/xapi-project/ocaml-fd-send-recv"
 bug-reports: "https://github.com/xapi-project/ocaml-fd-send-recv/issues"
 dev-repo: "git+https://github.com/xapi-project/ocaml-fd-send-recv.git"
@@ -21,7 +20,7 @@ build: [
   ["dune" "build" "@doc" "-p" name] {with-doc}
 ]
 depends: [
-  "ocaml"
+  "ocaml" {< "5.0"}
   "dune" {>= "1.4"}
   "odoc" {with-doc}
 ]

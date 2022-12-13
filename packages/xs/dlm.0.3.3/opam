@@ -1,14 +1,16 @@
 opam-version: "2.0"
-name: "dlm"
-version: "0.3.3"
-synopsis: "Libdlm bindings"
-description: "Bindings to the Linux Distributed Lock Manager `libdlm(3)`."
 maintainer: "xen-api@list.xensource.com"
-authors: "Edwin Török"
-license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+authors: ["Edwin Török"]
 homepage: "https://github.com/xapi-project/ocaml-dlm/"
-doc: "https://xapi-project.github.io/ocaml-dlm/doc"
 bug-reports: "https://github.com/xapi-project/ocaml-dlm/issues"
+dev-repo: "git+https://github.com/xapi-project/ocaml-dlm.git"
+doc: "https://xapi-project.github.io/ocaml-dlm/doc"
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "build" "-p" name "-j" jobs "@runtest"] {with-test}
+  ["dune" "build" "-p" name "-j" jobs "@doc"] {with-doc}
+]
 depends: [
   "ocaml"
   "conf-pkg-config" {build}
@@ -20,14 +22,6 @@ depends: [
   "unix-errno"
   "uuidm" {>= "0.9.6"}
 ]
-available:
-  os = "linux" & arch != "arm32" & os-distribution != "alpine" &
-  os-distribution != "arch"
-build: [
-  ["dune" "build" "-p" name "-j" jobs]
-  ["dune" "build" "-p" name "-j" jobs "@runtest"] {with-test}
-  ["dune" "build" "-p" name "-j" jobs "@doc"] {with-doc}
-]
 depexts: [
   ["libdlm-dev"] {os-family = "debian"}
   ["dlm-devel"] {os-family = "rhel"}
@@ -35,7 +29,9 @@ depexts: [
   ["dlm-devel"] {os-distribution = "ol"}
   ["libdlm-devel"] {os-family = "suse"}
 ]
-dev-repo: "git+https://github.com/xapi-project/ocaml-dlm.git"
+available: os = "linux" & arch != "arm32" & os-distribution != "alpine" & os-distribution != "arch"
+synopsis: "Libdlm bindings"
+description: "Bindings to the Linux Distributed Lock Manager `libdlm(3)`."
 url {
   src:
     "https://github.com/xapi-project/ocaml-dlm/releases/download/v0.3.3/dlm-0.3.3.tbz"
