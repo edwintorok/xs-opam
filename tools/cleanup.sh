@@ -10,5 +10,7 @@
 set -euo pipefail
 COMPILER=4.14.0
 opam admin check --ignore-test-doc
-ALLDEPS=$(opam admin filter --verbose --dry-run --resolve=xs-toolstack | sed -n 2p | tr ' ' ',')
+# vhd-format-lwt would need io-page 2.4.0 which brings in a lot of other
+# updates, which is being worked on separately
+ALLDEPS=$(opam admin filter --verbose --dry-run --resolve=xs-toolstack | sed -n 2p | tr ' ' '\n' | grep -v vhd-format-lwt | tr '\n' ',')
 exec opam admin filter --dry-run "--resolve=${ALLDEPS}" --resolve upstream-extra-dummy --resolve xenctrl.dummy --resolve opam-depext --resolve opam-ed.0.3 --resolve ocaml-base-compiler.${COMPILER} --resolve ocaml-system.${COMPILER} --or --with-test
