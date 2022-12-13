@@ -8,7 +8,5 @@
 # those (but we don't necessarily need to run the tests of packages pulled in
 # only for testing - that is sometimes not all solvable with same versions)
 set -euo pipefail
-COMPILER=4.14.0
-opam admin check --ignore-test-doc
-ALLDEPS=$(opam admin filter --verbose --dry-run --resolve=xs-toolstack | sed -n 2p | tr ' ' ',')
-exec opam admin filter --dry-run "--resolve=${ALLDEPS}" --resolve upstream-extra-dummy --resolve xenctrl.dummy --resolve opam-depext --resolve opam-ed.0.3 --resolve ocaml-base-compiler.${COMPILER} --resolve ocaml-system.${COMPILER} --or --with-test
+ALLDEPS=$(opam admin filter --dry-run --resolve=xs-toolstack | sed -n 2p | tr ' ' '\n' |grep -v ocaml-system | tr '\n' ' ')
+opam install --no-depexts --with-test ${ALLDEPS} -y
