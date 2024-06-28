@@ -33,6 +33,7 @@ depends: [
   "vhd-format-lwt"
   "xapi-idl"
   "xapi-log"
+  "xapi-stdext-std"
   "xenstore"
   "xenstore_transport"
 ]
